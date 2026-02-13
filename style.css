@@ -1,0 +1,111 @@
+body{
+    margin:0;
+    height:100vh;
+    background: url("1.jpeg") no-repeat center center;
+    background-size: cover;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:'Courier New', monospace;
+    overflow:hidden;
+}
+body::before{
+    content:"";
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.4);
+    z-index:-1;
+}
+
+
+
+/* Hide checkboxes */
+#step1, #step2{
+    display:none;
+}
+
+/* POPUP */
+.popup{
+    position:relative;
+    width:350px;
+    padding:30px;
+    background:#ffc0cb;
+    border:6px solid #ff6b81;
+    text-align:center;
+    box-shadow:0 0 0 6px #ff8fa3;
+}
+
+.buttons{
+    margin-top:20px;
+    position:relative;
+    height:60px;
+}
+
+.yes{
+    padding:10px 20px;
+    border:4px solid #ff6b81;
+    background:#fff;
+    cursor:pointer;
+    font-weight:bold;
+    margin-right:20px;
+}
+
+.no{
+    padding:10px 20px;
+    border:4px solid #ff6b81;
+    background:#fff;
+    cursor:pointer;
+    font-weight:bold;
+    position:absolute;
+    left:150px;
+    transition:0.15s;
+}
+
+/* STEP 1 ACTIVE */
+#step1:checked ~ .popup{
+    display:none;
+}
+
+.envelope-screen{
+    display:none;
+    flex-direction:column;
+    align-items:center;
+}
+
+#step1:checked ~ .envelope-screen{
+    display:flex;
+}
+
+.envelope{
+    font-size:80px;
+    cursor:pointer;
+    text-align:center;
+}
+
+/* STEP 2 ACTIVE */
+.letter-screen{
+    display:none;
+    justify-content:center;
+    align-items:center;
+}
+
+#step2:checked ~ .letter-screen{
+    display:flex;
+}
+
+#step2:checked ~ .envelope-screen{
+    display:none;
+}
+
+.letter{
+    width:320px;
+    max-height:400px;
+    overflow-y:auto;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
